@@ -1,0 +1,58 @@
+<% include ../partials/fluffyheader.ejs %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Fluffy Pillows promises quality.</p>
+            <div class="list-group">
+                <p>Lay your head back into pure comfort with our collection of pillows, including a selection of popular brands such as Fluffy and Pillows. Choose your favourite today, whether it’s luxurious duck feather fillings or soft memory foam pillows for ultimate neck support.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail no-drop">
+                <div class="product-image" style="background-image:url('<%= pillow.image %>')">
+                <!--<img class="image-responsive" src="<%=pillow.image %>"> -->
+                </div>
+                <div class="caption-full">
+                    <h4 class="pull-right">&pound;<%=pillow.price%></h4>
+                    <h4><%=pillow.name%></h4>
+                    <p><%=pillow.description%></p>
+                    <p>Submitted by <%=pillow.author.username%></p>
+                    
+                    <% if(currentUser && pillow.author.id.equals(currentUser._id)){%>
+                    <a class="btn btn-warning" href="/pillows/<%=pillow._id%>/edit">Edit</a>
+                    <form id="deleteForm" action="/pillows/<%=pillow._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                    <% } %>
+                    
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                <a class="button-action" href="/pillows/<%=pillow._id%>/comments/new">Add new comment</a>   
+                </div>
+                <hr>
+                <% pillow.comments.forEach(function(comment){ %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong><%=comment.author.username%></strong>
+                        <span class="pull-right"><%= new Date().toJSON().slice(0,10).replace(/-/g,'/') %></span>
+                        <p><%=comment.text%></p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)){%>
+                        <a class="btn btn-xs btn-warning" href="/pillows/<%=pillow._id%>/comments/<%=comment._id%>/edit">
+                        Edit    
+                        </a>
+                        <form id="deleteForm" action="/pillows/<%=pillow._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                            <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                        </form>
+                        <% } %>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</div>
+
+

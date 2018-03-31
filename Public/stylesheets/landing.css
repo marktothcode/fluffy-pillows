@@ -1,0 +1,43 @@
+body {
+    background: url(../bed-2453298_1920.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding-top: 15vh;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.add-button { 
+    color: white;
+    background-color: #76323F;;
+    border-color: #fff;
+    display: inline-block;
+    padding: 8px 15px;
+    margin-bottom: 1.5em;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 2px solid transparent;
+    border-radius: 3px;
+
+}

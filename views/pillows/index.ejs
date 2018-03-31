@@ -1,0 +1,42 @@
+<% include ../partials/fluffyheader.ejs %>
+
+<div class="container">
+<header class="jumbotron">
+    <div class="container">
+         <h1 style="color:#76323F">Welcome to Fluffy Pillows</h1>
+         <p>View our hand-made pillows from all over the world!</p>
+         <p>
+         <a class="add-button" href="/pillows/new">Add new pillow</a>
+         </p>
+    </div>
+</header>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Our most popular pillows:</h3>
+    </div>
+</div>
+
+
+<div class="row text-center" style="display:flex flex-wrap:flex;">
+    <% pillows.forEach(function(pillows) { %>
+        <a href="/pillows/<%=pillows._id %>">
+        <div class="col-md-3 col-sm-6">        
+            <div class="thumbnail">
+                <div class="thumbnail-image" style="background-image:url('<%= pillows.image %>')">
+                </div>
+            <div class="caption">
+                <h4><%= pillows.name %></h4>
+            </div> 
+                <a href="/pillows/<%=pillows._id %>" class="button-action">view more</a>
+            </div>
+        
+</div>
+        
+        
+        <% }); %>   
+</div>
+
+
+
+
